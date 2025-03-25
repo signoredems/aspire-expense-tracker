@@ -1,0 +1,17 @@
+# Cline's Learning Journal
+
+## Project Conventions
+
+- Using .NET Aspire for cloud-native development
+- Implementing Google authentication for user access
+- Using Azure SQL Database for data persistence
+
+## Implementation Notes
+
+- Enhanced expense model to support various splitting scenarios and currency tracking
+- Simplified user management approach for initial version
+
+## Tool Usage Patterns
+
+- Using write_to_file for initial file creation
+- Using replace_in_file for targeted code modifications
