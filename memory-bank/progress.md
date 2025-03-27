@@ -8,28 +8,28 @@
 - Authentication strategy
 - Deployment strategy planning
 - Memory bank creation
+- Project structure setup
+- Entity model implementation
+- Database setup
+- API endpoint creation
 
 ## In Progress
 
-- Project setup and configuration
+- Authentication implementation
 
 ## Pending
 
-- Database setup
-- Entity model implementation
-- API endpoint creation
-- Authentication implementation
 - UI development
 - Deployment configuration
 
 ## Known Issues
 
-- None yet (project in initial planning phase)
+- ~~SQL Server configuration in AppHost using string literal for password instead of parameter resource~~ (Fixed)
 
 ## Milestones
 
-- [ ] Project structure setup
-- [ ] Database and models implementation
+- [x] Project structure setup
+- [x] Database and models implementation
 - [ ] Authentication and authorization
 - [ ] Basic expense tracking functionality
 - [ ] Expense splitting and balance calculation

@@ -15,6 +15,8 @@
 - **Visual Studio Code**: Primary development environment
 - **Local SQL Server/SQLite**: For development database
 - **Aspire Dashboard**: Local development monitoring
+- **Aspire Parameter Resources**: For managing sensitive configuration values, including the use of environment variables for storing sensitive information.
+- **Local .env files**: Recommended for storing environment variables during local development. Ensure these files are added to .gitignore and never committed to source control.
 
 ## Key Dependencies
 

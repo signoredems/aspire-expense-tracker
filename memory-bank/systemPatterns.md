@@ -80,3 +80,12 @@ RESTful API endpoints for expense operations:
 - POST /api/expenses - Create expense
 - PUT /api/expenses/{id} - Update expense
 - DELETE /api/expenses/{id} - Delete expense
+
+## Security Patterns
+
+### Sensitive Information Handling
+
+- Using Aspire parameter resources for sensitive information like database passwords
+- Example: `var sqlPassword = builder.AddParameter("sqlPassword", Environment.GetEnvironmentVariable("SQL_PASSWORD") ?? throw new InvalidOperationException("SQL_PASSWORD environment variable not set."));`
+- Passing parameter resources to service configurations instead of string literals
+- Reading sensitive information from environment variables instead of hardcoding
