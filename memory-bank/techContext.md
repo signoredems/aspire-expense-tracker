@@ -12,6 +12,7 @@
 - **xUnit**: Testing framework for unit and integration tests
 - **Moq**: Mocking framework for unit tests
 - **Entity Framework Core InMemory**: In-memory database provider for testing
+- **Microsoft.AspNetCore.Mvc.Testing**: Framework for integration testing of ASP.NET Core applications
 
 ## Development Environment
 
@@ -20,6 +21,18 @@
 - **Aspire Dashboard**: Local development monitoring
 - **Aspire Parameter Resources**: For managing sensitive configuration values, including the use of environment variables for storing sensitive information.
 - **Local .env files**: Recommended for storing environment variables during local development. Ensure these files are added to .gitignore and never committed to source control.
+- **Test Runner**: xUnit test runner with integration test support
+
+## Testing Configuration
+
+- **Unit Tests**: Standard xUnit tests with in-memory database and mocking
+- **Integration Tests**: Using WebApplicationFactory to create a test server
+- **Test Project Configuration**:
+  - PreserveCompilationContext set to true
+  - Required dependencies: Microsoft.AspNetCore.Mvc.Testing, Microsoft.EntityFrameworkCore.InMemory
+- **Known Issues**:
+  - Missing testhost.deps.json file causing integration test failures
+  - Error: System.ArgumentException : Argument --parentprocessid was not specified
 
 ## Key Dependencies
 

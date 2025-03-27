@@ -5,7 +5,8 @@
 - Implementing the authentication and authorization system
 - Creating the basic UI for expense entry and listing
 - Testing the API endpoints
-- Ensuring code quality through unit testing
+- Ensuring code quality through unit and integration testing
+- Resolving integration test configuration issues
 
 ## Recent Decisions
 
@@ -18,6 +19,7 @@
 7. **Database Development**: Using SQL Server container for local development via Aspire
 8. **SQL Server Configuration**: Updated SQL Server configuration to use parameter resource for password instead of string literal
 9. **Testing Strategy**: Implemented unit tests for API controllers using xUnit, in-memory database, and Moq
+10. **Integration Testing**: Added integration tests for API endpoints using Microsoft.AspNetCore.Mvc.Testing
 
 ## Open Questions
 
@@ -25,6 +27,7 @@
 - Detailed category list for expenses
 - Implementation of debt settlement tracking
 - Reporting and visualization requirements
+- How to resolve the integration test configuration issues with missing `testhost.deps.json` file
 
 ## Next Steps
 
@@ -39,4 +42,5 @@
 3. Test the API endpoints
    - Create test data
    - Verify CRUD operations
+   - Resolve integration test configuration issues
 4. Implement the balance calculation functionality

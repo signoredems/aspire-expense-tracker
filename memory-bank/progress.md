@@ -18,6 +18,8 @@
 
 - Authentication implementation
 - Integration testing
+  - Resolving issues with missing `testhost.deps.json` file
+  - Investigating test runner configuration
 
 ## Pending
 
@@ -27,6 +29,9 @@
 ## Known Issues
 
 - ~~SQL Server configuration in AppHost using string literal for password instead of parameter resource~~ (Fixed)
+- Integration tests failing due to missing `testhost.deps.json` file
+  - `PreserveCompilationContext` property is set to `true` in the test project
+  - Error: `System.ArgumentException : Argument --parentprocessid was not specified`
 
 ## Milestones
 

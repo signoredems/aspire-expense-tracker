@@ -5,6 +5,7 @@
 - Using .NET Aspire for cloud-native development
 - Implementing Google authentication for user access
 - Using Azure SQL Database for data persistence
+- Using target-typed new expressions (e.g., `List<string> items = new()`)
 
 ## Implementation Notes
 

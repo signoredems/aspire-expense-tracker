@@ -90,6 +90,15 @@ RESTful API endpoints for expense operations:
 - Passing parameter resources to service configurations instead of string literals
 - Reading sensitive information from environment variables instead of hardcoding
 
+## Coding Conventions
+
+### C# Language Features
+
+- Using target-typed new expressions for cleaner code (e.g., `List<string> items = new()` instead of `List<string> items = new List<string>()`)
+- Leveraging nullable reference types for better null safety
+- Using pattern matching where appropriate
+- Preferring expression-bodied members for concise methods and properties
+
 ## Testing Patterns
 
 ### Unit Testing
@@ -99,7 +108,16 @@ RESTful API endpoints for expense operations:
 - Mocking dependencies with Moq
 - TestBase class for common test setup
 
+### Integration Testing
+
+- Using Microsoft.AspNetCore.Mvc.Testing for testing API endpoints
+- WebApplicationFactory for creating test server
+- In-memory database for integration tests
+- PreserveCompilationContext set to true in test project
+
 ### Test Structure
+
+#### Unit Tests
 
 ```csharp
 public class ExpensesControllerTests : TestBase
@@ -124,3 +142,58 @@ public class ExpensesControllerTests : TestBase
   }
 }
 ```
+
+#### Integration Tests
+
+```csharp
+public class ApiEndpointsTests : IClassFixture<WebApplicationFactory<Program>>
+{
+  private readonly WebApplicationFactory<Program> _factory;
+
+  public ApiEndpointsTests(WebApplicationFactory<Program> factory)
+  {
+    _factory = factory.WithWebHostBuilder(builder =>
+    {
+      builder.ConfigureServices(services =>
+      {
+        // Configure test services
+        var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
+        if (descriptor != null)
+        {
+          services.Remove(descriptor);
+        }
+
+        services.AddDbContext<ApplicationDbContext>(options =>
+        {
+          options.UseInMemoryDatabase("TestDatabase");
+        });
+      });
+    });
+  }
+
+  [Fact]
+  public async Task GetExpenses_ReturnsSuccessAndAllExpenses()
+  {
+    // Arrange
+    var client = _factory.CreateClient();
+
+    // Act
+    var response = await client.GetAsync("/api/expenses");
+
+    // Assert
+    response.EnsureSuccessStatusCode();
+    var content = await response.Content.ReadAsStringAsync();
+    var expenses = JsonSerializer.Deserialize<List<Expense>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    Assert.NotNull(expenses);
+  }
+}
+```
+
+### Integration Test Issues
+
+- Missing `testhost.deps.json` file causing test failures
+- Error: `System.ArgumentException : Argument --parentprocessid was not specified`
+- Potential solutions:
+  - Investigate shadow copying settings
+  - Review test runner configuration
+  - Ensure proper test host setup
