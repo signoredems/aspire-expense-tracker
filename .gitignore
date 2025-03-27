@@ -145,3 +145,6 @@ logs/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Local environment variables
+*.env

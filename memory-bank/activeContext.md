@@ -2,10 +2,9 @@
 
 ## Current Focus
 
-- Setting up the initial project structure
-- Implementing the core expense data model
-- Configuring authentication and authorization
+- Implementing the authentication and authorization system
 - Creating the basic UI for expense entry and listing
+- Testing the API endpoints
 
 ## Recent Decisions
 
@@ -14,6 +13,9 @@
 3. **Development Experience**: Implementing authentication bypass for local development
 4. **Database Choice**: Using Azure SQL Database (free tier) for production
 5. **Deployment Target**: Azure App Service for hosting the application
+6. **Expense Model Simplification**: Removed redundant PartnerPercentage property as it can be calculated from YourPercentage
+7. **Database Development**: Using SQL Server container for local development via Aspire
+8. **SQL Server Configuration**: Updated SQL Server configuration to use parameter resource for password instead of string literal
 
 ## Open Questions
 
@@ -24,8 +26,15 @@
 
 ## Next Steps
 
-1. Create the project structure and configure Aspire
-2. Set up the database and entity models
-3. Implement the authentication and authorization system
-4. Create the expense entry and listing UI
-5. Implement the balance calculation functionality
+1. Implement the authentication and authorization system
+   - Add Google authentication
+   - Create user management UI
+   - Implement development bypass
+2. Create the expense entry and listing UI
+   - Design expense entry form
+   - Implement expense listing with filtering
+   - Add balance calculation and display
+3. Test the API endpoints
+   - Create test data
+   - Verify CRUD operations
+4. Implement the balance calculation functionality

@@ -10,6 +10,7 @@
 
 - Enhanced expense model to support various splitting scenarios and currency tracking
 - Simplified user management approach for initial version
+- Use parameter resources for sensitive information in Aspire configuration
 
 ## Tool Usage Patterns
 
