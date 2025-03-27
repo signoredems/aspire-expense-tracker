@@ -89,3 +89,38 @@ RESTful API endpoints for expense operations:
 - Example: `var sqlPassword = builder.AddParameter("sqlPassword", Environment.GetEnvironmentVariable("SQL_PASSWORD") ?? throw new InvalidOperationException("SQL_PASSWORD environment variable not set."));`
 - Passing parameter resources to service configurations instead of string literals
 - Reading sensitive information from environment variables instead of hardcoding
+
+## Testing Patterns
+
+### Unit Testing
+
+- Using xUnit as the testing framework
+- In-memory database for data access testing
+- Mocking dependencies with Moq
+- TestBase class for common test setup
+
+### Test Structure
+
+```csharp
+public class ExpensesControllerTests : TestBase
+{
+  [Fact]
+  public async Task GetExpenses_ReturnsAllExpenses()
+  {
+    // Arrange
+    using var context = CreateDbContext();
+    var logger = CreateLogger<ExpensesController>();
+    var controller = new ExpensesController(context, logger);
+
+    // Add test data to context
+
+    // Act
+    var result = await controller.GetExpenses();
+
+    // Assert
+    var actionResult = Assert.IsType<ActionResult<IEnumerable<Expense>>>(result);
+    var returnValue = Assert.IsAssignableFrom<IEnumerable<Expense>>(actionResult.Value);
+    Assert.Equal(expectedCount, returnValue.Count());
+  }
+}
+```

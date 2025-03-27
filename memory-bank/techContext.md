@@ -9,6 +9,9 @@
 - **Azure SQL Database**: Cloud database (free tier)
 - **Azure App Service**: Web application hosting
 - **Google Authentication**: External identity provider
+- **xUnit**: Testing framework for unit and integration tests
+- **Moq**: Mocking framework for unit tests
+- **Entity Framework Core InMemory**: In-memory database provider for testing
 
 ## Development Environment
 

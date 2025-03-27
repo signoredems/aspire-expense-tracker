@@ -12,10 +12,12 @@
 - Entity model implementation
 - Database setup
 - API endpoint creation
+- Unit tests for API controllers
 
 ## In Progress
 
 - Authentication implementation
+- Integration testing
 
 ## Pending
 

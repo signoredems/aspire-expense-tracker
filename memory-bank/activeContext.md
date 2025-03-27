@@ -5,6 +5,7 @@
 - Implementing the authentication and authorization system
 - Creating the basic UI for expense entry and listing
 - Testing the API endpoints
+- Ensuring code quality through unit testing
 
 ## Recent Decisions
 
@@ -16,6 +17,7 @@
 6. **Expense Model Simplification**: Removed redundant PartnerPercentage property as it can be calculated from YourPercentage
 7. **Database Development**: Using SQL Server container for local development via Aspire
 8. **SQL Server Configuration**: Updated SQL Server configuration to use parameter resource for password instead of string literal
+9. **Testing Strategy**: Implemented unit tests for API controllers using xUnit, in-memory database, and Moq
 
 ## Open Questions
 
